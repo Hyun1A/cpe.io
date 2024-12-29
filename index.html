@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Doubly Perturbed Task Free Continual Learning">
+  <meta name="keywords" content="Task Free Continual Learning, Deep Learning, Machine Learning">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Doubly Perturbed Task Free Continual Learning</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-2 publication-title">Doubly Perturbed Task Free Continual Learning</h1>
+          <h2 class="title is-3 publication-title">AAAI 2024</h2>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://icl.snu.ac.kr/members#h.2exipjc28vwg">Byung Hyun Lee</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://minoh.io/">Min-hwan Oh</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://icl.snu.ac.kr/pi">Se Young Chun</a><sup>1</sup><sup>,</sup><sup>3</sup><sup>,</sup><sup>&#8224</sup></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Department of Electrical and Computer Engineering, Seoul National University</span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>2</sup>Graduate School of Data Science, Seoul National University</span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>3</sup>INMC & IPAI, Seoul National University</span>
+          </div>
+          <div class="is-size-10 publication-authors">
+            <span class="author-block">&#8224 Corresponding author</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2312.13027"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2312.13027"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!--
+              <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/Hyun1A/dpcl_aaai"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <!--
+              <span class="link-block">
+                <a href="https://github.com/google/nerfies/releases/tag/0.1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a>
+              -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+  
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Task Free online continual learning (TF-CL) is a challenging
+            problem where the model incrementally learns tasks without
+            explicit task information. Although training with entire
+            data from the past, present as well as future is considered
+            as the gold standard, naive approaches in TF-CL with the
+            current samples may be conflicted with learning with samples
+            in the future, leading to catastrophic forgetting and poor
+            plasticity. Thus, a proactive consideration of an unseen future
+            sample in TF-CL becomes imperative. Motivated by this
+            intuition, we propose a novel TF-CL framework considering
+            future samples and show that injecting adversarial perturbations
+            on both input data and decision-making is effective.
+            Then, we propose a novel method named Doubly Perturbed
+            Continual Learning (DPCL) to efficiently implement
+            these input and decision-making perturbations. Specifically,
+            for input perturbation, we propose an approximate perturbation
+            method that injects noise into the input data as well as the
+            feature vector and then interpolates the two perturbed samples.
+            For decision-making process perturbation, we devise
+            multiple stochastic classifiers. We also investigate a memory
+            management scheme and learning rate scheduling reflecting
+            our proposed double perturbations. We demonstrate that
+            our proposed method outperforms the state-of-the-art baseline
+            methods by large margins on various TF-CL benchmarks.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+</section>
+
+
+
+  
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Motivation of Considering Future Sample</h2>
+          <div className="container is-max-desktop">
+              <img id="overview"
+                       width="600" height="600"
+                      src="./static/figures/figure0_motivation.png"
+                      alt={"overview"}>
+              </img>
+              <h2 className="subtitle has-text-centered">
+                In the paradigm of TF-CL, the gold standard is to train with entire data from the past, present, and future. Therefore, we proactively consider a unknown future sample, which conventional approaches in TF-CL didn't considered before.
+              </h2>
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Analysis of Considering a Future Sample in TF-CL</h2>
+          <div className="container is-max-desktop">
+            <img id="overview"
+                       width="900" height="900"
+                      src="./static/figures/figure1_equations.png"
+                      alt={"overview"}>
+            </img>  
+              <!-- <h2 className="subtitle has-text-centered">
+                The novel framework of TF-CL (1) considering a future sample can be relaxed to the problem of miniminzg adversarial loss on both input and weight.
+              </h2>   -->
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Intuition of the Proposed Framework</h2>
+          <div className="container is-max-desktop">
+            <img id="overview"
+                      height={"100%"}
+                      src="./static/figures/figure1_cam_ready.png"
+                      alt={"overview"}>
+              </img>
+              <h2 className="subtitle has-text-centered">
+                Intuitively, the adversarial loss flattens the input and weight loss landscape. 
+                For the input, it is desirable to achieve low losses
+                for both past and future samples with the current network
+                weights and a flatter input landscape is more
+                conducive to achieving this goal. If the loss flat about weights, 
+                then one would expect only a minor increase in loss compared to a sharper weight landscape when
+                the weights shift by training with new samples. 
+              h2>
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  
+
+  
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Proposed Method (DPCL)</h2>
+          <div className="container is-max-desktop">
+            <img id="overview"
+                      height={"100%"}
+                      src="./static/figures/figure2_cam_ready.png"
+                      alt={"overview"}>
+            </img>  
+              <h2 className="subtitle has-text-centered">
+                Sketch of our proposed method, Doubly Perturbed Continual Learning (DPCL). It mainly consists of two components: Perturbed Function Interpolation (Left) and Branched Stochastic Classifiers (Right). They efficiently flatten the input and weight loss landscape, respectively. We also suggest aㅜ effective memory management and adaptive learning rate scheme, called PIMA. 
+              </h2>
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Results on Various Datasets on Disjoint Setup </h2>
+          <div className="container is-max-desktop">
+            <img id="overview"
+                      height={"100%"}
+                      src="./static/figures/figure3_graph.png"
+                      alt={"overview"}>
+            </img>  
+            <img id="overview"
+                      height={"100%"}
+                      src="./static/figures/figure3_table.png"
+                      alt={"overview"}>
+            </img>
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Results on Various Setups and Complexity Analysis </h2>
+          <div className="container is-max-desktop">
+            <img id="overview"
+                      height={"100%"}
+                      src="./static/figures/figure3_blurry_complexity.png"
+                      alt={"overview"}>
+            </img>  
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Qualitative Analysis on Input Loss Landscape </h2>
+          <div className="container is-max-desktop">
+            <img id="overview"
+                      height={"100%"}
+                      src="./static/figures/figure4.png"
+                      alt={"overview"}>
+            </img>  
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+  
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Qualitative Analysis on Weight Loss Landscape </h2>
+          <div className="container is-max-desktop">
+            <img id="overview"
+                      height={"100%"}
+                      src="./static/figures/figure5.png"
+                      alt={"overview"}>
+            </img>  
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+  
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>
+      @InProceedings{lee2023hle,
+          author    = {Lee, Byung Hyun and Oh, Min-hwan and Chun, Se Young},
+          title     = {Doubly Perturbed Task-Free Continual Learning},
+          journal   = {arXiv preprint arXiv:2312.13027},
+          year      = {2023},
+      }</code></pre>
+  </div>
+</section>
+
+  
+  
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
