@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="description"
         content="Concept Pinpoint Eraser for Text-to-image Diffusion Models via Residual Attention Gate">
-  <meta name="keywords" content="Task Free Continual Learning, Deep Learning, Machine Learning">
+  <meta name="keywords" content="Concept erasing, Generative model, Diffusion model">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Concept Pinpoint Eraser for Text-to-image Diffusion Models via Residual Attention Gate</title>
 
@@ -51,7 +51,7 @@
     <div class="container is-widescreen">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-2 publication-title">Concept Pinpoint Eraser for Text-to-image Diffusion <br> Models via Residual Attention Gate</h1>
+          <h1 class="title is-2 publication-title">Concept Pinpoint Eraser for Text-to-image <br> Diffusion Models via Residual Attention Gate</h1>
           <!-- <h2 class="title is-3 publication-title">ICLR 2025</h2> -->
           <div class="is-size-5 publication-authors">
             <span class="author-block">
@@ -134,14 +134,13 @@
 
   
 <section class="section">
-  <div class="container is-max-desktop">
+  <div class="container is-widescreen">
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            \begin{abstract}
             Remarkable progress in text-to-image diffusion models has brought a major concern about potentially generating images
             on inappropriate or trademarked concepts. Concept erasing has been investigated with the goals of deleting target
             concepts in diffusion models while preserving other concepts with minimal distortion. To achieve these goals,
@@ -167,18 +166,20 @@
   
 
 <section class="section">
-  <div class="container is-max-desktop">
+  <div class="container is-widescreen">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Motivation of Considering Future Sample</h2>
+        <h2 class="title is-3">Overview of Concept Pinpoint Eraser</h2>
           <div className="container is-max-desktop">
               <img id="overview"
-                       width="600" height="600"
-                      src="./static/figures/figure0_motivation.png"
+                       width="1200" height="600"
+                      src="./static/figures_CPE/fig1_v12.pdf"
                       alt={"overview"}>
               </img>
               <h2 className="subtitle has-text-centered">
-                In the paradigm of TF-CL, the gold standard is to train with entire data from the past, present, and future. Therefore, we proactively consider a unknown future sample, which conventional approaches in TF-CL didn't considered before.
+                (a) Comparison of fine-tuning approaches for concept erasing. Previous methods could affect both on target and remaining concepts as they merely fine-tunes CA layers.
+                In contrast, our method, CPE, can adatively transmit the change for target concepts to erase while successfully suppressing it for remaining concepts, by using the proposed ResAGs.
+                (b) Qualitative results on erasing “Claude Monet” artistic style, comparing with a baseline.
               </h2>
           </div>
       </div>
