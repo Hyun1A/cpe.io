@@ -169,7 +169,7 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Overview of Concept Pinpoint Eraser</h2>
+        <h2 class="title is-3">Overview of Concept Pinpoint Eraser (CPE)</h2>
           <div className="container is-max-desktop">
               <img id="overview"
                        width="1200" height="600"
@@ -191,153 +191,46 @@
 </section>
 
 
+
 <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Analysis of Considering a Future Sample in TF-CL</h2>
+        <h2 class="title is-3">Architecture of Residual Attention Gates for CPE</h2>
           <div className="container is-max-desktop">
-            <img id="overview"
-                       width="900" height="900"
-                      src="./static/figures/figure1_equations.png"
-                      alt={"overview"}>
-            </img>  
-              <!-- <h2 className="subtitle has-text-centered">
-                The novel framework of TF-CL (1) considering a future sample can be relaxed to the problem of miniminzg adversarial loss on both input and weight.
-              </h2>   -->
-          </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-  
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Intuition of the Proposed Framework</h2>
-          <div className="container is-max-desktop">
-            <img id="overview"
-                      height={"100%"}
-                      src="./static/figures/figure1_cam_ready.png"
+              <img id="overview"
+                       width="1200" height="600"
+                      src="./static/figures_CPE/fig3.png"
                       alt={"overview"}>
               </img>
-              <h2 className="subtitle has-text-centered">
-                Intuitively, the adversarial loss flattens the input and weight loss landscape. 
-                For the input, it is desirable to achieve low losses
-                for both past and future samples with the current network
-                weights and a flatter input landscape is more
-                conducive to achieving this goal. If the loss flat about weights, 
-                then one would expect only a minor increase in loss compared to a sharper weight landscape when
-                the weights shift by training with new samples. 
-              h2>
+
+              <div class="content has-text-justified"> 
+                <p>
+                  (a) Architecture of ResAG module in CA layers for selectively erasing a target concept while preserving remaining concepts. 
+                  (b) To erase multiple targets during inference, we merge multiple ResAGs by only adding the ResAG of the target with the highest gate value for each token.
+                </p>
+              </div>
           </div>
       </div>
     </div>
   </div>
 </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   
-
-  
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Proposed Method (DPCL)</h2>
-          <div className="container is-max-desktop">
-            <img id="overview"
-                      height={"100%"}
-                      src="./static/figures/figure2_cam_ready.png"
-                      alt={"overview"}>
-            </img>  
-              <h2 className="subtitle has-text-centered">
-                Sketch of our proposed method, Doubly Perturbed Continual Learning (DPCL). It mainly consists of two components: Perturbed Function Interpolation (Left) and Branched Stochastic Classifiers (Right). They efficiently flatten the input and weight loss landscape, respectively. We also suggest aㅜ effective memory management and adaptive learning rate scheme, called PIMA. 
-              </h2>
-          </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Results on Various Datasets on Disjoint Setup </h2>
-          <div className="container is-max-desktop">
-            <img id="overview"
-                      height={"100%"}
-                      src="./static/figures/figure3_graph.png"
-                      alt={"overview"}>
-            </img>  
-            <img id="overview"
-                      height={"100%"}
-                      src="./static/figures/figure3_table.png"
-                      alt={"overview"}>
-            </img>
-          </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Results on Various Setups and Complexity Analysis </h2>
-          <div className="container is-max-desktop">
-            <img id="overview"
-                      height={"100%"}
-                      src="./static/figures/figure3_blurry_complexity.png"
-                      alt={"overview"}>
-            </img>  
-          </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-  
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Qualitative Analysis on Input Loss Landscape </h2>
-          <div className="container is-max-desktop">
-            <img id="overview"
-                      height={"100%"}
-                      src="./static/figures/figure4.png"
-                      alt={"overview"}>
-            </img>  
-          </div>
-      </div>
-    </div>
-  </div>
-</section>
-  
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Qualitative Analysis on Weight Loss Landscape </h2>
-          <div className="container is-max-desktop">
-            <img id="overview"
-                      height={"100%"}
-                      src="./static/figures/figure5.png"
-                      alt={"overview"}>
-            </img>  
-          </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 
 
