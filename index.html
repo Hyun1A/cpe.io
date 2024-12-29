@@ -177,11 +177,14 @@
                       alt={"overview"}>
               </img> -->
 
-              <embed 
-                src="./static/figures_CPE/fig1_v12.pdf"
-                width="1200" 
-                height="800"/>
-                          
+              <object 
+                data="./static/figures_CPE/fig1_v12.pdf"
+                type="application/pdf" 
+                width="600" 
+                height="800">
+                <p>...</p>
+              </object>
+
               <h2 className="subtitle has-text-centered">
                 (a) Comparison of fine-tuning approaches for concept erasing. Previous methods could affect both on target and remaining concepts as they merely fine-tunes CA layers.
                 In contrast, our method, CPE, can adatively transmit the change for target concepts to erase while successfully suppressing it for remaining concepts, by using the proposed ResAGs.
